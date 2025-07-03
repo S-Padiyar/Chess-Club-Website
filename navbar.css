@@ -59,12 +59,6 @@
     border-radius: 50%;
     transition: 0.30s;
   }
-
-  .brhs.hovered {
-    color: var(--gold);
-    border-bottom: 2px solid var(--gold);
-  }
-
   .brhs {
     font-size: 24px;
     font-weight: 600;
@@ -73,7 +67,14 @@
     cursor: default;
     transition: color 0.3s ease, border-bottom 0.3s ease;
     border-bottom: 2px solid transparent; /* <-- Reserve border space */
+    padding: 0.4rem 0;
   }
+
+  .logo-link:hover ~ .brhs {
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+  }​
+
 
   .logo-link {
     border-radius: 50%;
