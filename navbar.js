@@ -15,7 +15,7 @@ logo.addEventListener('mouseleave', () => {
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
-})
+});
 
 Array.from(navLinks).forEach(link => {
   link.addEventListener("click", event => {
@@ -32,7 +32,16 @@ Array.from(navLinks).forEach(link => {
 });
 
 
+// ✅ Mobile support: simulate hover effect on logo image
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+  logo.addEventListener('touchstart', () => {
+    brhsText.classList.add('hovered');
+  });
 
-
-
-
+  logo.addEventListener('touchend', () => {
+    // Remove the hover effect after a short delay
+    setTimeout(() => {
+      brhsText.classList.remove('hovered');
+    }, 300);
+  });
+}
