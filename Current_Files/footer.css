@@ -1,9 +1,10 @@
 :root {
     --primary: #1a1a1a;
     --secondary: #caa449;
+    --trinary: #6B4F2A;
     --text-light: #f4f4f4;
     --text-muted: #bdbdbd;
-}
+} 
 
 * {
     margin: 0;
@@ -156,14 +157,13 @@ h3 {
 .bottom-bar {
     background: var(--secondary);
     text-align: center;
-    padding: 10px 0;
     margin-top: 30px;
 }
 
 .bottom-bar p {
     color: var(--primary);
     margin: 0;
-    font-size: 16px;
+    font-size: 13px;
     padding: 7px;
 }
 
