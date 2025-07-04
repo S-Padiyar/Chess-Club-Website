@@ -74,21 +74,16 @@ button {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  /* more explicit, like FAQ */
+  margin-top: 20px;
 }
 
 button:hover {
-  background-color: rgb(192, 192, 192);
+  background-color: silver;
   color: var(--black);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(126, 124, 117, 0.3);
+  transform: translateY(-2px) scale(1.02);
 }
 
-button:active {
-  background-color: var(--gold-alt);
-  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.2);
-  transform: translateY(0) scale(0.98);
-}
 
 #form-status {
   margin-top: 1rem;
