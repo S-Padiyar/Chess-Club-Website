@@ -9,157 +9,194 @@
   <link rel="icon" type="image/png" sizes="16x16" href="Favicon_Images/favicon-16x16.png">
   <link rel="manifest" href="Favicon_Images/site.webmanifest">    
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap"/>
-  <link rel="stylesheet" href="navbar.css"> 
-  <link rel="stylesheet" href="footer.css"> 
+  <link rel="stylesheet" href="CSS_Files/navbar.css"> 
+  <link rel="stylesheet" href="CSS_Files/footer.css"> 
   <script src="https://kit.fontawesome.com/1165876da6.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        :root {
-            --bronze: #b08d57;
-            --dark: #0f0f0f;
-            --darker: #1a1a1a;
-        }
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-alt: #caa449;
+      --black: #1B1B1B;
+      --black-alt: #1a1a1a;
+      --bronze: #6B4F2A;
+      --dark-bg: #121212;
+      --section-bg: #242424;
+    }
 
-        /* Reset and base */
-        body {
-            background-color: var(--dark);
-            color: white;
-        }
+    /* Reset and base */
+    body {
+      background-color: var(--dark-bg);
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
 
-        main {
-            max-width: 100%;
-            margin: 0 auto;
-        }
+    main {
+      max-width: 100%;
+      margin: 0 auto;
+    }
 
-        /* Welcome Section */
-        section.welcome {
-            text-align: center;
-            padding: 4rem 1rem;
-            background-color: var(--darker);
-        }
-        section.welcome h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        section.welcome p {
-            font-size: 1.125rem;
-            color: #d1d5db; /* Tailwind text-gray-300 */
-            margin: 0;
-        }
+    /* Chessboard pattern background */
+    .chessboard-bg {
+      background-image: 
+        linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%),
+        linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%);
+      background-size: 60px 60px;
+      background-position: 0 0, 30px 30px;
+    }
 
-        /* Club Highlights */
-        section.highlights {
-            background-color: var(--dark);
-            padding: 4rem 1rem;
-            display: flex;
-            justify-content: center;
-        }
-        section.highlights > div {
-            max-width: 48rem;
-            width: 100%;
-            text-align: center;
-        }
-        section.highlights h2 {
-            font-size: 1.875rem;
-            font-weight: 600;
-            color: var(--bronze);
-            margin-bottom: 1.5rem;
-        }
-        section.highlights ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            color: #e5e7eb; /* Tailwind text-gray-200 */
-            line-height: 1.75rem;
-        }
-        section.highlights ul li {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
+    /* Welcome Section */
+    section.welcome {
+      text-align: center;
+      padding: 4rem 1rem;
+      background-color: var(--black-alt);
+      box-shadow: 0 0 10px var(--bronze);
+      border-radius: 12px;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+    section.welcome h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    section.welcome p {
+      font-size: 1.125rem;
+      color: #e5e7eb;
+      margin: 0;
+    }
 
-        /* Call to Action */
-        section.cta {
-            background-color: var(--bronze);
-            color: black;
-            text-align: center;
-            padding: 4rem 1rem;
-        }
-        section.cta h2 {
-            font-size: 1.875rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        section.cta p {
-            font-size: 1.125rem;
-            margin-bottom: 1.5rem;
-        }
-        section.cta .btn {
-            background-color: black;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-        }
-        section.cta .btn:hover {
-            background-color: #27272a; /* Tailwind gray-800 */
-        }
-        section.cta .download-link {
-            display: inline-block;
-            color: black;
-            text-decoration: underline;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: color 0.3s ease;
-        }
-        section.cta .download-link:hover {
-            color: white;
-        }
+    /* Club Highlights */
+    section.highlights {
+      padding: 4rem 1rem;
+      background-color: var(--section-bg);
+      display: flex;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 0 10px var(--bronze);
+    }
+    section.highlights > div {
+      max-width: 48rem;
+      width: 100%;
+      text-align: center;
+    }
+    section.highlights h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    section.highlights ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: #e5e7eb;
+      line-height: 1.75rem;
+    }
+    section.highlights ul li {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
 
-        /* Photo Carousel */
-        section.carousel {
-            background-color: var(--darker);
-            padding: 4rem 1rem;
-            max-width: 80rem;
-            margin: 0 auto;
-            border-radius: 0.5rem;
-        }
-        section.carousel h2 {
-            font-size: 1.5rem;
-            color: var(--bronze);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .carousel-images {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.5rem;
-        }
-        .carousel-slide {
-            width: 100%;
-            display: none;
-            border-radius: 0.5rem;
-        }
-        .carousel-slide.active {
-            display: block;
-        }
+    /* Call to Action */
+    section.cta {
+      background-color: var(--black-alt);
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 0 10px var(--bronze);
+    }
+    section.cta h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    section.cta p {
+      font-size: 1.125rem;
+      color: #e5e7eb;
+      margin-bottom: 1.5rem;
+    }
+    section.cta .btn {
+      background-color: var(--gold);
+      color: var(--black);
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+    section.cta .btn:hover {
+      background-color: silver;
+      transform: translateY(-2px);
+    }
+    section.cta .download-link {
+      display: inline-block;
+      color: var(--gold);
+      text-decoration: underline;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: color 0.3s ease;
+    }
+    section.cta .download-link:hover {
+      color: white;
+    }
 
-        /* Responsive paddings for highlights */
-            @media (min-width: 768px) {
-            section.highlights {
-                padding-left: 4rem;
-                padding-right: 4rem;
-            }
-        }
-    </style>
+    /* Photo Carousel */
+    section.carousel {
+      background-color: var(--black-alt);
+      padding: 4rem 1rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 0 10px var(--bronze);
+    }
+    section.carousel h2 {
+      font-size: 2rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .carousel-images {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 2px solid var(--gold);
+    }
+    .carousel-slide {
+      width: 100%;
+      display: none;
+      border-radius: 12px;
+    }
+    .carousel-slide.active {
+      display: block;
+    }
+
+    /* Responsive paddings */
+    @media (min-width: 768px) {
+      section.welcome,
+      section.highlights,
+      section.cta,
+      section.carousel {
+        padding: 4rem 2rem;
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body class="chessboard-bg">
   <header>
     <nav class="navbar">
       <div class="nav-logo">
@@ -168,14 +205,12 @@
         </a>
         <p class="brhs">BRHS Chess Club</p>
       </div>
-
       <ul class="nav-menu">
         <li class="nav-item"><a href="#" class="nav-link">About</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Events</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
         <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
       </ul>
-
       <div class="hamburger">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -196,7 +231,7 @@
         <h2>Club Highlights</h2>
         <ul>
           <li>🏆 1st Place at the Regional High School Chess Championship</li>
-          <li>📆 Hosted 10+ chess meetups this semester</li>
+        <li>📆 Hosted 10+ chess meetups this semester</li>
           <li>♟️ Member spotlight: Alex J. ranked top 5 nationally in U18 division</li>
         </ul>
       </div>
@@ -220,45 +255,43 @@
         <img src="Spinning_Pictures/Tournament_1st_Place (2025 March).jpg" class="carousel-slide active" alt="Chess Tournament Victory" />
         <img src="Spinning_Pictures/Tournament_Match (2025 March).jpg" class="carousel-slide" alt="Friendly Meetup" />
         <img src="Spinning_Pictures/Bughouse_Game.jpg" class="carousel-slide" alt="Practice Session" />
-        <!-- <img src="https://via.placeholder.com/1000x400?text=Strategy+Workshop" class="carousel-slide" alt="Strategy Workshop" />
-        <img src="https://via.placeholder.com/1000x400?text=Chess+Club+Banquet" class="carousel-slide" alt="Chess Club Banquet" /> -->
       </div>
     </section>
   </main>
 
   <footer>
-      <div class="container">
-          <div class="footer-logo">
-              <img src="Chess_Club_Logo.png" alt="Chess Club Logo">
-          </div>
-          <div class="footer-content">
-              <h3>Contact Us</h3>
-              <p><a href="mailto:1066477@lcps.org">1066477@lcps.org</a></p>
-              <p><a href="tel:15712522300">(571) 252-2300</a></p>
-              <p><a href="https://maps.google.com/?q=21670 Ashburn Rd" target="_blank">21670 Ashburn Rd</a></p>
-          </div>
-          <div class="footer-content">
-              <h3>Quick Links</h3>
-              <ul class="list">
-                  <li><a href="">About</a></li>
-                  <li><a href="">Events</a></li>
-                  <li><a href="">Contact</a></li>
-                  <li><a href="">Blog</a></li>
-              </ul>
-          </div>
-          <div class="footer-content">
-              <h3>Follow Us</h3>
-              <ul class="social-icons">
-                  <li><a href=""><i class="fas fa-comment"></i></a></li>
-                  <li><a href=""><i class="fab fa-instagram"></i></a></li>
-              </ul>
-          </div>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="Chess_Club_Logo.png" alt="Chess Club Logo">
       </div>
-      <div class="bottom-bar">
-          <p>&copy; 2025 BRHS Chess Club. All rights reserved. </p>
+      <div class="footer-content">
+        <h3>Contact Us</h3>
+        <p><a href="mailto:1066477@lcps.org">1066477@lcps.org</a></p>
+        <p><a href="tel:15712522300">(571) 252-2300</a></p>
+        <p><a href="https://maps.google.com/?q=21670 Ashburn Rd" target="_blank">21670 Ashburn Rd</a></p>
       </div>
+      <div class="footer-content">
+        <h3>Quick Links</h3>
+        <ul class="list">
+          <li><a href="">About</a></li>
+          <li><a href="">Events</a></li>
+          <li><a href="">Contact</a></li>
+          <li><a href="">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-content">
+        <h3>Follow Us</h3>
+        <ul class="social-icons">
+          <li><a href=""><i class="fas fa-comment"></i></a></li>
+          <li><a href=""><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <p>© 2025 BRHS Chess Club. All rights reserved.</p>
+    </div>
   </footer>
-  <script src="navbar.js"></script>
+  <script src="JS_Files/navbar.js"></script>
   <script>
     const slides = document.querySelectorAll('.carousel-slide');
     let index = 0;
@@ -270,4 +303,4 @@
     }, 4000);
   </script>
 </body>
-</html>
+</html> 
