@@ -5,7 +5,7 @@
   --black-alt: #1a1a1a;
   --bronze: #6B4F2A;
   --dark-bg: #121212;
-  --section-bg: #1e1e1e;
+  --section-bg: #242424;
 }
 
 body {
@@ -28,7 +28,7 @@ body {
     padding-top: 9rem;
 }
 .contact-container, .location-container, .faq-container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   background-color: var(--black-alt);
   padding: 2rem;
