@@ -76,7 +76,7 @@
             text-align: center;
             max-width: 1400px;
             margin: 0 auto;
-            margin-top: -24px;
+            margin-top: -28px; /* Matches Home, About, Contact, and Events pages */
         }
         .puzzle-container {
             max-width: 1400px;
@@ -224,12 +224,13 @@
         }
         .signup-container input {
             width: 100%;
-            padding: 0.75rem;
+            max-width: 500px; /* Increased from 400px for wider input areas */
+            padding: 0.75rem; /* Retained for original height */
             border-radius: 6px;
             border: 1px solid var(--gold);
             background-color: var(--black);
             color: white;
-            font-size: 1rem;
+            font-size: 1rem; /* Retained for original height */
         }
         .signup-container input:focus {
             outline: none;
@@ -299,12 +300,12 @@
     <div class="content-wrapper">
         <main>
             <!-- Daily Puzzle Section -->
-            <section class="puzzle-section" data-aos="fade-up" data-aos-duration="800">
+            <section class="puzzle-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                 <div class="puzzle-container">
                     <h1>Daily Chess Puzzle</h1>
                     <p>Test your skills with our daily chess puzzle! Solve today's challenge and sharpen your strategic thinking. Check back each day for a new puzzle or join our club to discuss solutions at our weekly meetings (Wednesdays at 3:30 PM, Room 105).</p>
-                    <img src="Puzzle_Images/daily_puzzle_2025_07_10.jpg" alt="Daily Chess Puzzle" />
-                    <p><strong>White to move and checkmate in 2.</strong> Can you find the winning moves? Share your solution with us at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a>!</p>
+                    <img src="Puzzle_Images/Puzzle1.png" alt="Daily Chess Puzzle" />
+                    <p><strong>White to move and win.</strong> Can you find the winning moves? Share your solution with us at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a>!</p>
                     <a href="https://lichess.org/training" target="_blank" class="btn">Try More Puzzles</a>
                 </div>
             </section>

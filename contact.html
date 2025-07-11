@@ -88,7 +88,7 @@
             margin: 0 auto;
             background-color: var(--black-alt);
             padding: 2rem;
-            margin-top: -16px;
+            margin-top: -28px; /* Adjusted to match Home, About, and Events pages */
             border-radius: 12px;
             box-shadow: 0 0 10px var(--bronze);
             color: white;
@@ -233,7 +233,7 @@
         }
 
         /* Location Section */
-        .faq-section {
+        .location-section {
             padding: 2rem 1rem 4rem 1rem;
             max-width: 1400px;
             margin: 0 auto;
@@ -276,11 +276,9 @@
             .contact-section {
                 padding: 6rem 2rem 4rem 2rem;
             }
-            .faq-section {
-                padding: 2rem 2rem 4rem 2rem;
-            }
+            .faq-section,
             .location-section {
-                padding: 2rem 2rem;
+                padding: 2rem 2rem 4rem 2rem;
             }
         }
     </style>
@@ -311,7 +309,7 @@
     <div class="content-wrapper">
         <main>
             <!-- Contact Section -->
-            <section class="contact-section" data-aos="fade-up" data-aos-delay="100">
+            <section class="contact-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                 <div class="contact-container">
                     <h2>Contact Us</h2>
                     <p style="margin-bottom: 2rem;">Have questions or want to get involved? Reach out to us! For inquiries, you can also email <a href="mailto:1066477@lcps.org">1066477@lcps.org</a> or call (571) 252-2300.</p>
@@ -329,7 +327,7 @@
             </section>
 
             <!-- FAQ Section -->
-            <section class="faq-section" data-aos="fade-up" data-aos-delay="200">
+            <section class="faq-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                 <div class="faq-container">
                     <h2>Frequently Asked Questions</h2>
                     <div class="faq-item">
@@ -363,12 +361,12 @@
             </section>
 
             <!-- Location Section -->
-            <section class="location-section" data-aos="fade-up" data-aos-delay="300">
+            <section class="location-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                 <div class="location-container">
                     <h2>Our Location</h2>
                     <iframe
                         class="map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.6609!2d-77.48717!3d39.04413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6719012345678%3A0xabcdef1234567890!2s21670%20Ashburn%20Rd%2C%20Ashburn%2C%20VA%2020148!5e0!3m2!1sen!2us!4v1650000000000!5m2!1sen!2sus"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.6609!2d-77.48717!3d39.04413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6719012345678%3A0xabcdef1234567890!2s21670%20Ashburn%20Rd%2C%20Ashburn%2C%20VA%2020148!5e0!3m2!1sen!2us!4v1650000000000!5m2!1sen!2us"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
