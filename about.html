@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - BRHS Chess Club</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="Favicon_Images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Favicon_Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Favicon_Images/favicon-16x16.png">
+    <link rel="manifest" href="Favicon_Images/site.webmanifest">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap"/>
+    <link rel="stylesheet" href="CSS_Files/navbar.css"> 
+    <link rel="stylesheet" href="CSS_Files/footer.css"> 
+    <script src="https://kit.fontawesome.com/1165876da6.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-alt: #caa449;
+            --black: #1B1B1B;
+            --black-alt: #1a1a1a;
+            --bronze: #6B4F2A;
+            --dark-bg: #121212;
+        }
+
+        /* Reset and base */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            padding-top: 80px; /* Matches navbar height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            max-width: 100%;
+            margin: 0 auto;
+            flex: 1; /* Ensure main takes available space */
+        }
+
+        /* Content wrapper for chessboard pattern */
+        .content-wrapper {
+            position: relative;
+            min-height: calc(100vh - 80px); /* Full height minus navbar */
+            z-index: 1;
+            flex: 1 0 auto; /* Ensure it grows to fill space */
+        }
+
+        /* Chessboard pattern as a pseudo-element */
+        .content-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%),
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            z-index: -1; /* Behind content */
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 6rem 1rem 4rem 1rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: -24px;
+        }
+        .story-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .story-container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .story-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 2rem 1rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+            text-align: center;
+        }
+        .team-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .team-container img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 2px solid var(--gold);
+        }
+        .team-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            padding: 2rem 1rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .impact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+            text-align: center;
+        }
+        .impact-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .impact-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+        }
+
+        /* Get Involved Section */
+        .get-involved-section {
+            padding: 2rem 1rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .get-involved-container {
+            max-width: 1400px;
+            margin: 0 auto 50px;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+            text-align: center;
+        }
+        .get-involved-container h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .get-involved-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+        }
+        .get-involved-container .btn {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        .get-involved-container .btn:hover {
+            background-color: silver;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+
+        /* Responsive paddings */
+        @media (min-width: 768px) {
+            .story-section {
+                padding: 6rem 2rem 4rem 2rem;
+            }
+            .team-section,
+            .impact-section,
+            .get-involved-section {
+                padding: 2rem 2rem 4rem 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="Chess_Club_Logo.png" class="logo" alt="BRHS Chess Logo">
+                </a>
+                <p class="brhs">BRHS Chess Club</p>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="content-wrapper">
+        <main>
+            <!-- Our Story Section -->
+            <section class="story-section" data-aos="fade-up" data-aos-duration="800">
+                <div class="story-container">
+                    <h1>Our Story</h1>
+                    <p>The BRHS Chess Club was established in 2015 at Briar Woods High School, located at 21670 Ashburn Rd, Ashburn, VA 20148. What began as a small group of chess enthusiasts has grown into a vibrant community dedicated to fostering strategic thinking, sportsmanship, and friendship. Our mission is to make chess accessible to all students, regardless of experience, and to provide a supportive environment for growth and competition.</p>
+                    <p>Over the years, we’ve celebrated milestones like our 1st Place win at the 2025 Regional High School Chess Championship. Our weekly meetings, held every Wednesday at 3:30 PM in Room 105, are a cornerstone of our club, offering opportunities for practice, learning, and connection. We’re proud to be a part of the Briar Woods community and look forward to continuing our legacy of excellence.</p>
+                </div>
+            </section>
+
+            <!-- Our Team Section -->
+            <section class="team-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <div class="team-container">
+                    <h2>Our Team</h2>
+                    <img src="Team_Pictures/BRHS_Chess_Team_2025.jpg" alt="BRHS Chess Club Team 2025" />
+                    <p>Our club is led by a dedicated team of student officers and guided by our faculty sponsors, <a href="mailto:john.doe@lcps.org">Mr. John Doe</a> and <a href="mailto:jane.smith@lcps.org">Ms. Jane Smith</a>. The leadership team organizes tournaments, workshops, and social events, ensuring a welcoming space for all members. Our sponsors provide mentorship and support, helping us achieve success both on and off the board.</p>
+                    <p>2025 Leadership Team:<br>President: Alex J.<br>Vice President: Sarah K.<br>Treasurer: Michael L.<br>Secretary: Emma R.</p>
+                </div>
+            </section>
+
+            <!-- Our Impact Section -->
+            <section class="impact-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                <div class="impact-container">
+                    <h2>Our Impact</h2>
+                    <p>The BRHS Chess Club has made a lasting impact at Briar Woods High School and beyond. By fostering critical thinking, problem-solving, and teamwork, we’ve helped over 50 members this year develop skills that extend far beyond the chessboard. Our club has hosted over 10 workshops and tournaments, including our signature Regional High School Chess Championship, where we secured 1st Place in 2025.</p>
+                    <p>We’re proud to spotlight members like Alex J., who ranks in the top 5 nationally in the U18 division, inspiring others to pursue excellence. Through community outreach, such as free chess clinics for local middle schools, we’re spreading the love of chess and building connections in Ashburn, VA. Join us to be part of this dynamic community!</p>
+                </div>
+            </section>
+
+            <!-- Get Involved Section -->
+            <section class="get-involved-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+                <div class="get-involved-container">
+                    <h2>Get Involved</h2>
+                    <p>Ready to join the BRHS Chess Club? We invite students of all skill levels to attend our meetings every Wednesday at 3:30 PM in Room 105 at 21670 Ashburn Rd, Ashburn, VA 20148. Whether you’re a beginner or a seasoned player, you’ll find a place in our community to learn, compete, and connect.</p>
+                    <p>For more information, contact our sponsors at <a href="mailto:john.doe@lcps.org">john.doe@lcps.org</a> or <a href="mailto:jane.smith@lcps.org">jane.smith@lcps.org</a>, or reach out to the club at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a> or (571) 252-2300. Stay updated by following us on social media!</p>
+                    <div>
+                        <a href="#join" class="btn">Join Now</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="Chess_Club_Logo.png" alt="Chess Club Logo">
+            </div>
+            <div class="footer-content">
+                <h3>Contact Us</h3>
+                <p><a href="mailto:1066477@lcps.org">1066477@lcps.org</a></p>
+                <p><a href="tel:15712522300">(571) 252-2300</a></p>
+                <p><a href="https://maps.google.com/?q=21670 Ashburn Rd" target="_blank">21670 Ashburn Rd</a></p>
+            </div>
+            <div class="footer-content">
+                <h3>Quick Links</h3>
+                <ul class="list">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h3>Follow Us</h3>
+                <ul class="social-icons">
+                    <li><a href="https://www.remind.com/join/chessbrhs"><i class="fas fa-comment"></i></a></li>
+                    <li><a href="https://www.instagram.com/brhs_chess/"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <p>© 2025 BRHS Chess Club. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="JS_Files/navbar.js"></script>
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+            });
+        });
+    </script>
+</body>
+</html>

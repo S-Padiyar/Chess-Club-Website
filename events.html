@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events - BRHS Chess Club</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="Favicon_Images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Favicon_Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Favicon_Images/favicon-16x16.png">
+    <link rel="manifest" href="Favicon_Images/site.webmanifest">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap"/>
+    <link rel="stylesheet" href="CSS_Files/navbar.css"> 
+    <link rel="stylesheet" href="CSS_Files/footer.css"> 
+    <script src="https://kit.fontawesome.com/1165876da6.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-alt: #caa449;
+            --black: #1B1B1B;
+            --black-alt: #1a1a1a;
+            --bronze: #6B4F2A;
+            --dark-bg: #121212;
+        }
+
+        /* Reset and base */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            padding-top: 80px; /* Matches navbar height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            max-width: 100%;
+            margin: 0 auto;
+            flex: 1; /* Ensure main takes available space */
+        }
+
+        /* Content wrapper for chessboard pattern */
+        .content-wrapper {
+            position: relative;
+            min-height: calc(100vh - 80px); /* Full height minus navbar */
+            z-index: 1;
+            flex: 1 0 auto; /* Ensure it grows to fill space */
+        }
+
+        /* Chessboard pattern as a pseudo-element */
+        .content-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%),
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            z-index: -1; /* Behind content */
+        }
+
+        /* Upcoming Events Section */
+        .events-section {
+            padding: 6rem 1rem 4rem 1rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: -24px;
+        }
+        .events-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .events-container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .events-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            padding: 2rem 1rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .calendar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+            text-align: center;
+        }
+        .calendar-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .calendar-container iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            border: none;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            margin-top: 25px;
+        }
+
+        /* Tournament Sign-Up Section */
+        .signup-section {
+            padding: 2rem 1rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .signup-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+            text-align: center;
+        }
+        .signup-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .signup-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+        }
+        .signup-container .form-wrapper {
+            display: inline-block;
+            width: auto;
+            max-width: 100%;
+            text-align: center;
+        }
+        .signup-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .signup-container input,
+        .signup-container select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--gold);
+            background-color: var(--black);
+            color: white;
+            font-size: 1rem;
+        }
+        .signup-container input:focus,
+        .signup-container select:focus {
+            outline: none;
+            border-color: var(--gold-alt);
+            box-shadow: 0 0 5px var(--gold);
+        }
+        .signup-container button {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .signup-container button:hover {
+            background-color: silver;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive paddings */
+        @media (min-width: 768px) {
+            .events-section {
+                padding: 6rem 2rem 4rem 2rem;
+            }
+            .calendar-section,
+            .signup-section {
+                padding: 2rem 2rem 4rem 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="Chess_Club_Logo.png" class="logo" alt="BRHS Chess Logo">
+                </a>
+                <p class="brhs">BRHS Chess Club</p>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="content-wrapper">
+        <main>
+            <!-- Upcoming Events Section -->
+            <section class="events-section" data-aos="fade-up" data-aos-duration="800">
+                <div class="events-container">
+                    <h1>Upcoming Events</h1>
+                    <p>Join us for exciting chess events at the BRHS Chess Club! From weekly meetings to regional tournaments, there’s something for players of all skill levels. Our events are held at Briar Woods High School, 21670 Ashburn Rd, Ashburn, VA 20148, unless otherwise noted. Check out our calendar below and sign up for tournaments to compete and connect with fellow chess enthusiasts!</p>
+                    <p>Highlights include our Weekly Chess Meetings every Wednesday at 3:30 PM in Room 105 and the Annual BRHS Chess Tournament in Spring 2026. Don’t miss out on workshops, casual play sessions, and special events designed to enhance your skills and love for the game.</p>
+                </div>
+            </section>
+
+            <!-- Calendar Section -->
+            <section class="calendar-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <div class="calendar-container">
+                    <h2>Event Calendar</h2>
+                    <p>Stay updated with our event schedule. Add our Google Calendar to your device to never miss a meeting, workshop, or tournament!</p>
+                    <iframe src="https://calendar.google.com/calendar/embed?src=your_calendar_id%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </section>
+
+            <!-- Tournament Sign-Up Section -->
+            <section class="signup-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                <div class="signup-container">
+                    <h2>Tournament Sign-Up</h2>
+                    <p>Ready to compete? Sign up for our upcoming tournaments! Fill out the form below to register. For questions, contact us at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a> or (571) 252-2300.</p>
+                    <div class="form-wrapper">
+                        <form action="submit_tournament_signup.php" method="POST">
+                            <input type="text" name="name" placeholder="Full Name" required>
+                            <input type="email" name="email" placeholder="Email Address" required>
+                            <input type="text" name="student_id" placeholder="Student ID (if applicable)">
+                            <select name="tournament" required>
+                                <option value="" disabled selected>Select Tournament</option>
+                                <option value="spring_2026">Spring 2026 BRHS Chess Tournament</option>
+                                <option value="regional_2026">Regional High School Chess Championship 2026</option>
+                                <option value="workshop">Chess Strategy Workshop</option>
+                            </select>
+                            <button type="submit">Register Now</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="Chess_Club_Logo.png" alt="Chess Club Logo">
+            </div>
+            <div class="footer-content">
+                <h3>Contact Us</h3>
+                <p><a href="mailto:1066477@lcps.org">1066477@lcps.org</a></p>
+                <p><a href="tel:15712522300">(571) 252-2300</a></p>
+                <p><a href="https://maps.google.com/?q=21670 Ashburn Rd" target="_blank">21670 Ashburn Rd</a></p>
+            </div>
+            <div class="footer-content">
+                <h3>Quick Links</h3>
+                <ul class="list">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h3>Follow Us</h3>
+                <ul class="social-icons">
+                    <li><a href="https://www.remind.com/join/chessbrhs"><i class="fas fa-comment"></i></a></li>
+                    <li><a href="https://www.instagram.com/brhs_chess/"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <p>© 2025 BRHS Chess Club. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="JS_Files/navbar.js"></script>
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+            });
+        });
+    </script>
+</body>
+</html>

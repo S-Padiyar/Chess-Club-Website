@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - BRHS Chess Club</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="Favicon_Images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Favicon_Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Favicon_Images/favicon-16x16.png">
+    <link rel="manifest" href="Favicon_Images/site.webmanifest">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap"/>
+    <link rel="stylesheet" href="CSS_Files/navbar.css"> 
+    <link rel="stylesheet" href="CSS_Files/footer.css"> 
+    <script src="https://kit.fontawesome.com/1165876da6.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-alt: #caa449;
+            --black: #1B1B1B;
+            --black-alt: #1a1a1a;
+            --bronze: #6B4F2A;
+            --dark-bg: #121212;
+        }
+
+        /* Reset and base */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            padding-top: 80px; /* Matches navbar height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            max-width: 100%;
+            margin: 0 auto;
+            flex: 1; /* Ensure main takes available space */
+        }
+
+        /* Content wrapper for chessboard pattern */
+        .content-wrapper {
+            position: relative;
+            min-height: calc(100vh - 80px); /* Full height minus navbar */
+            z-index: 1;
+            flex: 1 0 auto; /* Ensure it grows to fill space */
+        }
+
+        /* Chessboard pattern as a pseudo-element */
+        .content-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%),
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            z-index: -1; /* Behind content */
+        }
+
+        /* Daily Puzzle Section */
+        .puzzle-section {
+            padding: 6rem 1rem 4rem 1rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: -24px;
+        }
+        .puzzle-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .puzzle-container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .puzzle-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+        }
+        .puzzle-container img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 12px;
+            margin: 1rem auto;
+            border: 2px solid var(--gold);
+        }
+        .puzzle-container .btn {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+        .puzzle-container .btn:hover {
+            background-color: silver;
+            transform: translateY(-2px);
+        }
+
+        /* Blog Posts Section */
+        .blog-section {
+            padding: 2rem 1rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .blog-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .blog-post {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--bronze);
+            padding-bottom: 1rem;
+        }
+        .blog-post h3 {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        .blog-post p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+        }
+        .blog-post .meta {
+            font-size: 0.875rem;
+            color: #a1a1aa;
+            margin-bottom: 0.5rem;
+        }
+        .blog-post .btn {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .blog-post .btn:hover {
+            background-color: silver;
+            transform: translateY(-2px);
+        }
+
+        /* Newsletter Sign-Up Section */
+        .signup-section {
+            padding: 2rem 1rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .signup-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+            text-align: center;
+        }
+        .signup-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .signup-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 2rem;
+            line-height: 1.75rem;
+        }
+        .signup-container .form-wrapper {
+            display: inline-block;
+            width: auto;
+            max-width: 100%;
+            text-align: center;
+        }
+        .signup-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .signup-container input {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--gold);
+            background-color: var(--black);
+            color: white;
+            font-size: 1rem;
+        }
+        .signup-container input:focus {
+            outline: none;
+            border-color: var(--gold-alt);
+            box-shadow: 0 0 5px var(--gold);
+        }
+        .signup-container button {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .signup-container button:hover {
+            background-color: silver;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive paddings */
+        @media (min-width: 768px) {
+            .puzzle-section {
+                padding: 6rem 2rem 4rem 2rem;
+            }
+            .blog-section,
+            .signup-section {
+                padding: 2rem 2rem 4rem 2rem;
+            }
+        }
+    </style>
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="Chess_Club_Logo.png" class="logo" alt="BRHS Chess Logo">
+                </a>
+                <p class="brhs">BRHS Chess Club</p>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="content-wrapper">
+        <main>
+            <!-- Daily Puzzle Section -->
+            <section class="puzzle-section" data-aos="fade-up" data-aos-duration="800">
+                <div class="puzzle-container">
+                    <h1>Daily Chess Puzzle</h1>
+                    <p>Test your skills with our daily chess puzzle! Solve today's challenge and sharpen your strategic thinking. Check back each day for a new puzzle or join our club to discuss solutions at our weekly meetings (Wednesdays at 3:30 PM, Room 105).</p>
+                    <img src="Puzzle_Images/daily_puzzle_2025_07_10.jpg" alt="Daily Chess Puzzle" />
+                    <p><strong>White to move and checkmate in 2.</strong> Can you find the winning moves? Share your solution with us at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a>!</p>
+                    <a href="https://lichess.org/training" target="_blank" class="btn">Try More Puzzles</a>
+                </div>
+            </section>
+
+            <!-- Blog Posts Section -->
+            <section class="blog-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <div class="blog-container">
+                    <h2>Latest Blog Posts</h2>
+                    <div class="blog-post">
+                        <h3>Reflections on the 2025 Regional Championship</h3>
+                        <p class="meta">Posted on July 5, 2025 by Alex J.</p>
+                        <p>Our team’s 1st Place victory at the 2025 Regional High School Chess Championship was a thrilling milestone! Learn about our preparation, key matches, and the strategies that led to our success. From Sarah K.’s brilliant endgame to Michael L.’s tactical sacrifices, this post breaks down the highlights.</p>
+                        <a href="#read-more" class="btn">Read More</a>
+                    </div>
+                    <div class="blog-post">
+                        <h3>Chess Openings for Beginners</h3>
+                        <p class="meta">Posted on June 20, 2025 by Emma R.</p>
+                        <p>New to chess? Our secretary, Emma, shares her top 5 chess openings for beginners, including the Italian Game and the London System. This guide explains how to control the center and set up for a strong midgame, with tips from our club’s workshops.</p>
+                        <a href="#read-more" class="btn">Read More</a>
+                    </div>
+                    <div class="blog-post">
+                        <h3>Why Chess Builds Life Skills</h3>
+                        <p class="meta">Posted on June 10, 2025 by Mr. John Doe</p>
+                        <p>Our faculty sponsor, Mr. Doe, explores how chess fosters critical thinking, patience, and teamwork. Learn how our members have applied these skills in academics and beyond, with stories from our community outreach in Ashburn, VA.</p>
+                        <a href="#read-more" class="btn">Read More</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter Sign-Up Section -->
+            <section class="signup-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                <div class="signup-container">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter for the latest blog posts, event updates, and exclusive chess tips! Join our community and never miss a move. For inquiries, contact us at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a> or (571) 252-2300.</p>
+                    <div class="form-wrapper">
+                        <form action="submit_newsletter_signup.php" method="POST">
+                            <input type="text" name="name" placeholder="Full Name" required>
+                            <input type="email" name="email" placeholder="Email Address" required>
+                            <button type="submit">Subscribe Now</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="Chess_Club_Logo.png" alt="Chess Club Logo">
+            </div>
+            <div class="footer-content">
+                <h3>Contact Us</h3>
+                <p><a href="mailto:1066477@lcps.org">1066477@lcps.org</a></p>
+                <p><a href="tel:15712522300">(571) 252-2300</a></p>
+                <p><a href="https://maps.google.com/?q=21670+Ashburn+Rd" target="_blank">21670 Ashburn Rd</a></p>
+            </div>
+            <div class="footer-content">
+                <h3>Quick Links</h3>
+                <ul class="list">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h3>Follow Us</h3>
+                <ul class="social-icons">
+                    <li><a href="https://www.remind.com/join/chessbrhs"><i class="fas fa-comment"></i></a></li>
+                    <li><a href="https://www.instagram.com/brhs_chess/"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <p>© 2025 BRHS Chess Club. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="JS_Files/navbar.js"></script>
+</body>
+</html>

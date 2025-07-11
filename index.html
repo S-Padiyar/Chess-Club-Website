@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - BRHS Chess Club</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="Favicon_Images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Favicon_Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Favicon_Images/favicon-16x16.png">
+    <link rel="manifest" href="Favicon_Images/site.webmanifest">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap"/>
+    <link rel="stylesheet" href="CSS_Files/navbar.css"> 
+    <link rel="stylesheet" href="CSS_Files/footer.css"> 
+    <script src="https://kit.fontawesome.com/1165876da6.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-alt: #caa449;
+            --black: #1B1B1B;
+            --black-alt: #1a1a1a;
+            --bronze: #6B4F2A;
+            --dark-bg: #121212;
+        }
+
+        /* Reset and base */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            padding-top: 80px; /* Matches navbar height */
+        }
+
+        main {
+            max-width: 100%;
+            margin: 0 auto;
+            flex: 1 0 auto; /* Ensure main takes available space */
+        }
+
+        /* Content wrapper for chessboard pattern */
+        .content-wrapper {
+            position: relative;
+            min-height: calc(100vh - 80px); /* Full height minus navbar */
+            z-index: 1;
+            flex: 1 0 auto; /* Ensure it grows to fill space */
+        }
+
+        /* Chessboard pattern as a pseudo-element */
+        .content-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%),
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            z-index: -1; /* Behind content */
+        }
+
+        /* AOS initial opacity for animated elements */
+        [data-aos] {
+            opacity: 0;
+        }
+        [data-aos].aos-animate {
+            opacity: 1;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            padding: 6rem 1rem 4rem 1rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: -28px;
+        }
+        .welcome-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .welcome-container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .welcome-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+        }
+
+        /* Highlights Section */
+        .highlights-section {
+            padding: 2rem 1rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .highlights-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+            text-align: center;
+        }
+        .highlights-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .highlights-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: #e5e7eb;
+            line-height: 1.75rem;
+        }
+        .highlights-container ul li {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            padding: 2rem 1rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .cta-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+            text-align: center;
+        }
+        .cta-container h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .cta-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+        }
+        .cta-container .btn {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        .cta-container .btn:hover {
+            background-color: silver;
+            transform: translateY(-2px);
+        }
+        .cta-container .download-link {
+            display: inline-block;
+            color: var(--gold);
+            text-decoration: underline;
+            cursor: pointer;
+            margin: 1rem 0;
+            transition: color 0.3s ease;
+        }
+        .cta-container .download-link:hover {
+            color: white;
+        }
+
+        /* Carousel Section */
+        .carousel-section {
+            padding: 2rem 1rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .carousel-container {
+            max-width: 1400px;
+            margin: 0 auto 50px;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+        }
+        .carousel-container h2 {
+            font-size: 2rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .carousel-images {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 2px solid var(--gold);
+        }
+        .carousel-slide {
+            width: 100%;
+            display: none;
+            border-radius: 12px;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+
+        /* Responsive paddings */
+        @media (min-width: 768px) {
+            .welcome-section {
+                padding: 6rem 2rem 4rem 2rem;
+            }
+            .highlights-section,
+            .cta-section,
+            .carousel-section {
+                padding: 2rem 2rem 4rem 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="Chess_Club_Logo.png" class="logo" alt="BRHS Chess Logo">
+                </a>
+                <p class="brhs">BRHS Chess Club</p>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="content-wrapper">
+        <main>
+            <!-- Welcome Section -->
+            <section class="welcome-section" data-aos="fade-up" data-aos-delay="100">
+                <div class="welcome-container">
+                    <h1>Welcome to the BRHS Chess Club!</h1>
+                    <p>Join us at the BRHS Chess Club, where strategy meets community! Located at 21670 Ashburn Rd, Ashburn, VA 20148, our club is a vibrant hub for chess enthusiasts of all skill levels. Whether you're a beginner learning the basics or a seasoned player aiming to refine your tactics, we offer a welcoming environment to grow, compete, and connect.</p>
+                    <p>Our meetings take place every Wednesday at 3:30 PM in Room 105, providing a consistent space to practice and engage with fellow players. We pride ourselves on fostering a supportive atmosphere where members can challenge themselves through friendly matches, participate in workshops, and prepare for tournaments. Last semester, we hosted over 10 meetups and celebrated a 1st Place victory at the Regional High School Chess Championship!</p>
+                    <p>Chess is more than a game—it's a way to sharpen your mind, build lasting friendships, and develop critical thinking skills that extend beyond the board. At BRHS, we're committed to making chess accessible and enjoyable for everyone. Come visit us, explore our events, or reach out at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a> to learn more about how you can get involved!</p>
+                </div>
+            </section>
+
+            <!-- Club Highlights -->
+            <section class="highlights-section" data-aos="fade-up" data-aos-delay="200">
+                <div class="highlights-container">
+                    <h2>Club Highlights</h2>
+                    <ul>
+                        <li>🏆 1st Place at the Regional High School Chess Championship</li>
+                        <li>📆 Hosted 10+ chess meetups this semester</li>
+                        <li>♟️ Member spotlight: Alex J. ranked top 5 nationally in U18 division</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="cta-section" data-aos="fade-up" data-aos-delay="300">
+                <div class="cta-container">
+                    <h2>Join the BRHS Chess Club Today!</h2>
+                    <p>Ready to make your move? The BRHS Chess Club invites you to join our community of passionate players at 21670 Ashburn Rd, Ashburn, VA 20148. Our club meets every Wednesday at 3:30 PM in Room 105, offering a perfect opportunity to dive into the world of chess. Whether you're looking to compete in tournaments, enjoy casual games, or learn from experienced players, we have something for everyone.</p>
+                    <p>By joining, you'll gain access to exclusive events, including semesterly tournaments, strategy workshops, and social meetups. Our members have achieved remarkable success, such as our recent 1st Place win at the Regional High School Chess Championship, and we’re excited to help you reach your potential. Plus, you’ll connect with a diverse group of students who share your love for the game.</p>
+                    <p>Can’t make it to a meeting? Download our flyer to stay informed about upcoming events or contact us at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a> or (571) 252-2300 for more details. Follow us on social media for updates on our latest activities and achievements. Don’t wait—join the BRHS Chess Club and start your journey on the board today!</p>
+                    <div>
+                        <a href="#join" class="btn">Attend a Meeting</a>
+                        <a href="/flyers/chess-club-flyer.pdf" download class="download-link">📄 Download Our Flyer</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Carousel -->
+            <section class="carousel-section" data-aos="fade-up" data-aos-delay="400">
+                <div class="carousel-container">
+                    <h2>Club Moments</h2>
+                    <div class="carousel-images">
+                        <img src="Spinning_Pictures/Tournament_1st_Place (2025 March).jpg" class="carousel-slide active" alt="Chess Tournament Victory" />
+                        <img src="Spinning_Pictures/Tournament_Match (2025 March).jpg" class="carousel-slide" alt="Friendly Meetup" />
+                        <img src="Spinning_Pictures/Bughouse_Game.jpg" class="carousel-slide" alt="Practice Session" />
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="Chess_Club_Logo.png" alt="Chess Club Logo">
+            </div>
+            <div class="footer-content">
+                <h3>Contact Us</h3>
+                <p><a href="mailto:1066477@lcps.org">1066477@lcps.org</a></p>
+                <p><a href="tel:15712522300">(571) 252-2300</a></p>
+                <p><a href="https://maps.google.com/?q=21670 Ashburn Rd" target="_blank">21670 Ashburn Rd</a></p>
+            </div>
+            <div class="footer-content">
+                <h3>Quick Links</h3>
+                <ul class="list">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h3>Follow Us</h3>
+                <ul class="social-icons">
+                    <li><a href="https://www.remind.com/join/chessbrhs"><i class="fas fa-comment"></i></a></li>
+                    <li><a href="https://www.instagram.com/brhs_chess/"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <p>© 2025 BRHS Chess Club. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="JS_Files/navbar.js"></script>
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+            });
+
+            // Carousel Functionality
+            const slides = document.querySelectorAll('.carousel-slide');
+            let index = 0;
+            setInterval(() => {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                index = (index + 1) % slides.length;
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
