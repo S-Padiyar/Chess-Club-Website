@@ -73,7 +73,7 @@
         /* Story Section */
         .story-section {
             padding: 6rem 1rem 4rem 1rem;
-            text-align: center;
+            text-align: center; /* Keep centered for headers */
             max-width: 1400px;
             margin: 0 auto;
             margin-top: -28px; /* Adjusted to match Home page */
@@ -92,17 +92,21 @@
             font-weight: 700;
             color: var(--gold);
             margin-bottom: 1rem;
+            text-align: center; /* Keep header centered */
         }
         .story-container p {
             font-size: 1.125rem;
             color: #e5e7eb;
             margin-bottom: 1rem;
             line-height: 1.75rem;
+            text-align: left; /* Left-align body text */
+            padding-left: 1rem; /* Slight indent for readability */
         }
 
         /* Team Section */
         .team-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers and image */
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -114,13 +118,13 @@
             border-radius: 12px;
             box-shadow: 0 0 10px var(--bronze);
             color: white;
-            text-align: center;
         }
         .team-container h2 {
             font-size: 2rem;
             font-weight: 600;
             color: var(--gold);
             margin-bottom: 1.5rem;
+            text-align: center; /* Keep header centered */
         }
         .team-container img {
             width: 100%;
@@ -129,8 +133,20 @@
             border-radius: 12px;
             margin-bottom: 1rem;
             border: 2px solid var(--gold);
+            display: block;
+            margin-left: auto;
+            margin-right: auto; /* Center image */
         }
         .team-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+            text-align: left; /* Left-align body text */
+            padding-left: 1rem; /* Slight indent for readability */
+        }
+        .team-container .leadership-positions {
+            text-align: center; /* Center leadership positions */
             font-size: 1.125rem;
             color: #e5e7eb;
             margin-bottom: 1rem;
@@ -140,6 +156,7 @@
         /* Impact Section */
         .impact-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers */
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -151,24 +168,27 @@
             border-radius: 12px;
             box-shadow: 0 0 10px var(--bronze);
             color: white;
-            text-align: center;
         }
         .impact-container h2 {
             font-size: 2rem;
             font-weight: 600;
             color: var(--gold);
             margin-bottom: 1.5rem;
+            text-align: center; /* Keep header centered */
         }
         .impact-container p {
             font-size: 1.125rem;
             color: #e5e7eb;
             margin-bottom: 1rem;
             line-height: 1.75rem;
+            text-align: left; /* Left-align body text */
+            padding-left: 1rem; /* Slight indent for readability */
         }
 
         /* Get Involved Section */
         .get-involved-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers and buttons */
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -180,19 +200,21 @@
             border-radius: 12px;
             box-shadow: 0 0 10px var(--bronze);
             color: white;
-            text-align: center;
         }
         .get-involved-container h2 {
             font-size: 2rem;
             font-weight: 700;
             color: var(--gold);
             margin-bottom: 1rem;
+            text-align: center; /* Keep header centered */
         }
         .get-involved-container p {
             font-size: 1.125rem;
             color: #e5e7eb;
             margin-bottom: 1rem;
             line-height: 1.75rem;
+            text-align: left; /* Left-align body text */
+            padding-left: 1rem; /* Slight indent for readability */
         }
         .get-involved-container .btn {
             background-color: var(--gold);
@@ -269,7 +291,7 @@
                     <h2>Our Team</h2>
                     <img src="Spinning_Pictures/Image1.png" alt="BRHS Chess Club Team 2025" />
                     <p>Our club is led by a dedicated team of student officers and guided by our faculty sponsors, <a href="mailto:john.doe@lcps.org">Mr. John Doe</a> and <a href="mailto:jane.smith@lcps.org">Ms. Jane Smith</a>. The leadership team organizes tournaments, workshops, and social events, ensuring a welcoming space for all members. Our sponsors provide mentorship and support, helping us achieve success both on and off the board.</p>
-                    <p>2025 Leadership Team:<br>President: Alex J.<br>Vice President: Sarah K.<br>Treasurer: Michael L.<br>Secretary: Emma R.</p>
+                    <p class="leadership-positions">2025 Leadership Team:<br>President: Alex J.<br>Vice President: Sarah K.<br>Treasurer: Michael L.<br>Secretary: Emma R.</p>
                 </div>
             </section>
 
@@ -289,7 +311,7 @@
                     <p>Ready to join the BRHS Chess Club? We invite students of all skill levels to attend our meetings every Wednesday at 3:30 PM in Room 105 at 21670 Ashburn Rd, Ashburn, VA 20148. Whether you’re a beginner or a seasoned player, you’ll find a place in our community to learn, compete, and connect.</p>
                     <p>For more information, contact our sponsors at <a href="mailto:john.doe@lcps.org">john.doe@lcps.org</a> or <a href="mailto:jane.smith@lcps.org">jane.smith@lcps.org</a>, or reach out to the club at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a> or (571) 252-2300. Stay updated by following us on social media!</p>
                     <div>
-                        <a href="#join" class="btn">Join Now</a>
+                        <a href="https://docs.google.com/forms/d/1Nf4FVM9WL_EJK8UDImD21I88EruiNuHB72Oehdc2IWs/edit" class="btn">Join Now</a>
                     </div>
                 </div>
             </section>
@@ -303,7 +325,7 @@
             </div>
             <div class="footer-content">
                 <h3>Contact Us</h3>
-                <p><a href="mailto:1066477@lcps.org">1066477@lcps.org</a></p>
+                <p><a href="mailto:broadrunchessclub@gmail.com">broadrunchessclub@gmail.com</a></p>
                 <p><a href="tel:15712522300">(571) 252-2300</a></p>
                 <p><a href="https://maps.google.com/?q=21670 Ashburn Rd" target="_blank">21670 Ashburn Rd</a></p>
             </div>

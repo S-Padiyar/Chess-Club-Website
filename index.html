@@ -81,7 +81,7 @@
         /* Welcome Section */
         .welcome-section {
             padding: 6rem 1rem 4rem 1rem;
-            text-align: center;
+            text-align: center; /* Keep centered for headers */
             max-width: 1400px;
             margin: 0 auto;
             margin-top: -28px;
@@ -100,17 +100,21 @@
             font-weight: 700;
             color: var(--gold);
             margin-bottom: 1rem;
+            text-align: center; /* Keep header centered */
         }
         .welcome-container p {
             font-size: 1.125rem;
             color: #e5e7eb;
             margin-bottom: 1rem;
             line-height: 1.75rem;
+            text-align: left; /* Left-align body text */
+            padding-left: 1rem; /* Slight indent for readability */
         }
 
         /* Highlights Section */
         .highlights-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers */
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -122,13 +126,13 @@
             border-radius: 12px;
             box-shadow: 0 0 10px var(--bronze);
             color: white;
-            text-align: center;
         }
         .highlights-container h2 {
             font-size: 2rem;
             font-weight: 600;
             color: var(--gold);
             margin-bottom: 1.5rem;
+            text-align: center; /* Keep header centered */
         }
         .highlights-container ul {
             list-style: none;
@@ -140,11 +144,36 @@
         .highlights-container ul li {
             margin-bottom: 1rem;
             font-size: 1rem;
+            text-align: center; /* Center-align list items for achievements */
+            display: flex;
+            flex-direction: row; /* Icons to the left by default */
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping for better mobile display */
+        }
+        .highlight-icon {
+            font-size: 1.5rem; /* Larger icons */
+            color: silver; /* Silver color for icons */
+            margin-right: 0.75rem; /* Space to the right of icon */
+            text-shadow: 0 0 5px var(--gold-alt); /* Subtle gold glow */
+            display: inline-block; /* Ensure proper rendering */
+            line-height: 1; /* Align icon vertically */
+        }
+        @media (max-width: 767px) {
+            .highlights-container ul li {
+                flex-direction: column; /* Stack icon above text in mobile */
+                align-items: center;
+            }
+            .highlight-icon {
+                margin-right: 0; /* Remove right margin in mobile */
+                margin-bottom: 0.5rem; /* Space below icon */
+            }
         }
 
         /* Call to Action Section */
         .cta-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers and buttons */
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -156,19 +185,21 @@
             border-radius: 12px;
             box-shadow: 0 0 10px var(--bronze);
             color: white;
-            text-align: center;
         }
         .cta-container h2 {
             font-size: 2rem;
             font-weight: 700;
             color: var(--gold);
             margin-bottom: 1rem;
+            text-align: center; /* Keep header centered */
         }
         .cta-container p {
             font-size: 1.125rem;
             color: #e5e7eb;
             margin-bottom: 1rem;
             line-height: 1.75rem;
+            text-align: left; /* Left-align body text */
+            padding-left: 1rem; /* Slight indent for readability */
         }
         .cta-container .btn {
             background-color: var(--gold);
@@ -197,10 +228,15 @@
         .cta-container .download-link:hover {
             color: white;
         }
+        .cta-container .button-wrapper {
+            text-align: center; /* Center buttons */
+            margin-top: 1rem;
+        }
 
         /* Carousel Section */
         .carousel-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for header and images */
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -217,13 +253,14 @@
             color: var(--gold);
             font-weight: 600;
             margin-bottom: 1.5rem;
-            text-align: center;
+            text-align: center; /* Keep header centered */
         }
         .carousel-images {
             position: relative;
             overflow: hidden;
             border-radius: 12px;
             border: 2px solid var(--gold);
+            margin: 0 auto; /* Keep carousel images centered */
         }
         .carousel-slide {
             width: 100%;
@@ -292,9 +329,9 @@
                 <div class="highlights-container">
                     <h2>Club Highlights</h2>
                     <ul>
-                        <li>🏆 1st Place at the Regional High School Chess Championship</li>
-                        <li>📆 Hosted 10+ chess meetups this semester</li>
-                        <li>♟️ Member spotlight: Alex J. ranked top 5 nationally in U18 division</li>
+                        <li><i class="fas fa-trophy highlight-icon"></i> 1st Place at the Regional High School Chess Championship</li>
+                        <li><i class="fas fa-calendar-alt highlight-icon"></i> Hosted 10+ chess meetups this semester</li>
+                        <li><i class="fas fa-chess-knight highlight-icon"></i> Member spotlight: Alex J. ranked top 5 nationally in U18 division</li>
                     </ul>
                 </div>
             </section>
@@ -306,9 +343,9 @@
                     <p>Ready to make your move? The BRHS Chess Club invites you to join our community of passionate players at 21670 Ashburn Rd, Ashburn, VA 20148. Our club meets every Wednesday at 3:30 PM in Room 105, offering a perfect opportunity to dive into the world of chess. Whether you're looking to compete in tournaments, enjoy casual games, or learn from experienced players, we have something for everyone.</p>
                     <p>By joining, you'll gain access to exclusive events, including semesterly tournaments, strategy workshops, and social meetups. Our members have achieved remarkable success, such as our recent 1st Place win at the Regional High School Chess Championship, and we’re excited to help you reach your potential. Plus, you’ll connect with a diverse group of students who share your love for the game.</p>
                     <p>Can’t make it to a meeting? Download our flyer to stay informed about upcoming events or contact us at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a> or (571) 252-2300 for more details. Follow us on social media for updates on our latest activities and achievements. Don’t wait—join the BRHS Chess Club and start your journey on the board today!</p>
-                    <div>
-                        <a href="#join" class="btn">Attend a Meeting</a>
-                        <a href="/flyers/chess-club-flyer.pdf" download class="download-link">📄 Download Our Flyer</a>
+                    <div class="button-wrapper">
+                        <a href="https://docs.google.com/forms/d/1Nf4FVM9WL_EJK8UDImD21I88EruiNuHB72Oehdc2IWs/edit" class="btn">Attend a Meeting</a>
+                        <a href="Chess_Club_Recruitment_Flyer (2025-2026).pdf" download class="download-link">📄 Download Our Flyer</a>
                     </div>
                 </div>
             </section>
@@ -325,7 +362,6 @@
                         <img src="Spinning_Pictures/Image2.png" class="carousel-slide" alt="Practice Session" />
                         <img src="Spinning_Pictures/Image3.png" class="carousel-slide" alt="Practice Session" />
                         <img src="Spinning_Pictures/Image4.png" class="carousel-slide" alt="Practice Session" />
-
                     </div>
                 </div>
             </section>
@@ -339,7 +375,7 @@
             </div>
             <div class="footer-content">
                 <h3>Contact Us</h3>
-                <p><a href="mailto:1066477@lcps.org">1066477@lcps.org</a></p>
+                <p><a href="mailto:broadrunchessclub@gmail.com">broadrunchessclub@gmail.com</a></p>
                 <p><a href="tel:15712522300">(571) 252-2300</a></p>
                 <p><a href="https://maps.google.com/?q=21670 Ashburn Rd" target="_blank">21670 Ashburn Rd</a></p>
             </div>

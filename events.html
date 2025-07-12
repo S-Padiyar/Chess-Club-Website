@@ -73,7 +73,7 @@
         /* Upcoming Events Section */
         .events-section {
             padding: 6rem 1rem 4rem 1rem;
-            text-align: center;
+            text-align: center; /* Keep centered for headers */
             max-width: 1400px;
             margin: 0 auto;
             margin-top: -28px; /* Matches Home, About, and Contact pages */
@@ -92,17 +92,21 @@
             font-weight: 700;
             color: var(--gold);
             margin-bottom: 1rem;
+            text-align: center; /* Keep header centered */
         }
         .events-container p {
             font-size: 1.125rem;
             color: #e5e7eb;
             margin-bottom: 1rem;
             line-height: 1.75rem;
+            text-align: left; /* Left-align body text */
+            padding-left: 1rem; /* Slight indent for readability */
         }
 
         /* Calendar Section */
         .calendar-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers and iframe */
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -114,13 +118,20 @@
             border-radius: 12px;
             box-shadow: 0 0 10px var(--bronze);
             color: white;
-            text-align: center;
         }
         .calendar-container h2 {
             font-size: 2rem;
             font-weight: 600;
             color: var(--gold);
             margin-bottom: 1.5rem;
+            text-align: center; /* Keep header centered */
+        }
+        .calendar-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+            text-align: center; /* Center-align text */
         }
         .calendar-container iframe {
             width: 100%;
@@ -130,11 +141,15 @@
             border-radius: 12px;
             margin-bottom: 1rem;
             margin-top: 25px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto; /* Center iframe */
         }
 
         /* Tournament Sign-Up Section */
         .signup-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers and form */
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -146,25 +161,26 @@
             border-radius: 12px;
             box-shadow: 0 0 10px var(--bronze);
             color: white;
-            text-align: center;
         }
         .signup-container h2 {
             font-size: 2rem;
             font-weight: 600;
             color: var(--gold);
             margin-bottom: 1.5rem;
+            text-align: center; /* Keep header centered */
         }
         .signup-container p {
             font-size: 1.125rem;
             color: #e5e7eb;
             margin-bottom: 1rem;
             line-height: 1.75rem;
+            text-align: center; /* Center-align text */
         }
         .signup-container .form-wrapper {
             display: inline-block;
             width: auto;
             max-width: 100%;
-            text-align: center;
+            text-align: center; /* Center form elements */
         }
         .signup-container form {
             display: flex;
@@ -172,7 +188,8 @@
             align-items: center;
             gap: 1rem;
             width: 100%;
-            margin: 0 auto;
+            max-width: 500px; /* Limit form width for better centering */
+            margin: 0 auto; /* Center form */
         }
         .signup-container input,
         .signup-container select {
@@ -291,7 +308,7 @@
             </div>
             <div class="footer-content">
                 <h3>Contact Us</h3>
-                <p><a href="mailto:1066477@lcps.org">1066477@lcps.org</a></p>
+                <p><a href="mailto:broadrunchessclub@gmail.com">broadrunchessclub@gmail.com</a></p>
                 <p><a href="tel:15712522300">(571) 252-2300</a></p>
                 <p><a href="https://maps.google.com/?q=21670 Ashburn Rd" target="_blank">21670 Ashburn Rd</a></p>
             </div>
