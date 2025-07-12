@@ -29,6 +29,8 @@
             height: 100%;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         body {
@@ -36,8 +38,6 @@
             font-family: 'Segoe UI', sans-serif;
             color: white;
             padding-top: 80px; /* Matches navbar height */
-            display: flex;
-            flex-direction: column;
         }
 
         main {
@@ -92,20 +92,24 @@
             font-weight: 700;
             color: var(--gold);
             margin-bottom: 1rem;
+            text-align: center;
         }
         .puzzle-container p {
             font-size: 1.125rem;
             color: #e5e7eb;
             margin-bottom: 1rem;
             line-height: 1.75rem;
+            text-align: center;
         }
-        .puzzle-container img {
+        .puzzle-container iframe {
             width: 100%;
             max-width: 400px;
-            height: auto;
+            aspect-ratio: 10/11;
             border-radius: 12px;
             margin: 1rem auto;
             border: 2px solid var(--gold);
+            display: block;
+            padding-bottom: 0;
         }
         .puzzle-container .btn {
             background-color: var(--gold);
@@ -126,6 +130,7 @@
         /* Blog Posts Section */
         .blog-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -149,6 +154,7 @@
             margin-bottom: 2rem;
             border-bottom: 1px solid var(--bronze);
             padding-bottom: 1rem;
+            text-align: left;
         }
         .blog-post h3 {
             font-size: 1.5rem;
@@ -174,15 +180,32 @@
             text-decoration: none;
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
         }
         .blog-post .btn:hover {
             background-color: silver;
             transform: translateY(-2px);
         }
+        .blog-full-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.4s ease;
+            padding: 0 1rem;
+            color: #e5e7eb;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+        .blog-post.active .blog-full-content {
+            max-height: 1000px; /* Increased to accommodate longer content */
+            opacity: 1;
+            padding: 1rem;
+        }
 
         /* Newsletter Sign-Up Section */
         .signup-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -194,24 +217,26 @@
             border-radius: 12px;
             box-shadow: 0 0 10px var(--bronze);
             color: white;
-            text-align: center;
         }
         .signup-container h2 {
             font-size: 2rem;
             font-weight: 600;
             color: var(--gold);
             margin-bottom: 1.5rem;
+            text-align: center;
         }
         .signup-container p {
             font-size: 1.125rem;
             color: #e5e7eb;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             line-height: 1.75rem;
+            text-align: center;
         }
         .signup-container .form-wrapper {
-            display: inline-block;
-            width: auto;
-            max-width: 100%;
+            display: block;
+            width: 100%;
+            max-width: 700px; /* Matches contact.html */
+            margin: 0 auto;
             text-align: center;
         }
         .signup-container form {
@@ -220,17 +245,17 @@
             align-items: center;
             gap: 1rem;
             width: 100%;
-            margin: 0 auto;
+            max-width: 700px; /* Matches contact.html */
         }
         .signup-container input {
             width: 100%;
-            max-width: 500px; /* Increased from 400px for wider input areas */
-            padding: 0.75rem; /* Retained for original height */
+            padding: 0.75rem;
             border-radius: 6px;
             border: 1px solid var(--gold);
             background-color: var(--black);
             color: white;
-            font-size: 1rem; /* Retained for original height */
+            font-size: 1rem;
+            min-height: 36px; /* Matches previous request */
         }
         .signup-container input:focus {
             outline: none;
@@ -244,13 +269,17 @@
             border-radius: 6px;
             border: none;
             font-weight: bold;
-            margin-top: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .signup-container button:hover {
             background-color: silver;
             transform: translateY(-2px);
+        }
+        #form-status {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: white;
         }
 
         /* Responsive paddings */
@@ -264,15 +293,6 @@
             }
         }
     </style>
-    <script>
-        // Initialize AOS
-        document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({
-                duration: 800,
-                once: true,
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -304,8 +324,8 @@
                 <div class="puzzle-container">
                     <h1>Daily Chess Puzzle</h1>
                     <p>Test your skills with our daily chess puzzle! Solve today's challenge and sharpen your strategic thinking. Check back each day for a new puzzle or join our club to discuss solutions at our weekly meetings (Wednesdays at 3:30 PM, Room 105).</p>
-                    <img src="Puzzle_Images/Puzzle1.png" alt="Daily Chess Puzzle" />
-                    <p><strong>White to move and win.</strong> Can you find the winning moves? Share your solution with us at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a>!</p>
+                    <iframe src="https://lichess.org/training/frame?theme=brown&bg=dark" style="width: 500px; aspect-ratio: 10/11;" allowtransparency="true" frameborder="0"></iframe>
+                    <p>Can you find the winning moves? Share your solution with us at <a href="mailto:broadrunchessclub@gmail.com">broadrunchessclub@gmail.com</a>!</p>
                     <a href="https://lichess.org/training" target="_blank" class="btn">Try More Puzzles</a>
                 </div>
             </section>
@@ -318,19 +338,28 @@
                         <h3>Reflections on the 2025 Regional Championship</h3>
                         <p class="meta">Posted on July 5, 2025 by Alex J.</p>
                         <p>Our team’s 1st Place victory at the 2025 Regional High School Chess Championship was a thrilling milestone! Learn about our preparation, key matches, and the strategies that led to our success. From Sarah K.’s brilliant endgame to Michael L.’s tactical sacrifices, this post breaks down the highlights.</p>
-                        <a href="#read-more" class="btn">Read More</a>
+                        <div class="blog-full-content">
+                            <p>The 2025 Regional High School Chess Championship was a defining moment for the BRHS Chess Club. Months of preparation, including weekly practice sessions and mock tournaments, paid off as our team secured first place. Sarah K.’s endgame against a top-seeded opponent showcased her mastery of pawn structures, while Michael L.’s bold queen sacrifice in round 3 turned a losing position into a stunning victory. Our coach, Mr. Doe, emphasized teamwork and resilience, which kept us focused during intense matches. We also analyzed key games, such as a Sicilian Defense that led to a critical checkmate. Join us at our next meeting to discuss these strategies and learn how you can prepare for future tournaments!</p>
+                        </div>
+                        <a href="#" class="btn read-more">Read More</a>
                     </div>
                     <div class="blog-post">
                         <h3>Chess Openings for Beginners</h3>
                         <p class="meta">Posted on June 20, 2025 by Emma R.</p>
                         <p>New to chess? Our secretary, Emma, shares her top 5 chess openings for beginners, including the Italian Game and the London System. This guide explains how to control the center and set up for a strong midgame, with tips from our club’s workshops.</p>
-                        <a href="#read-more" class="btn">Read More</a>
+                        <div class="blog-full-content">
+                            <p>Starting chess can feel overwhelming, but choosing the right opening can set you up for success. In this guide, I share five beginner-friendly openings we teach at BRHS Chess Club workshops. The Italian Game (1.e4 e5 2.Nf3 Nc6 3.Bc4) is great for rapid development and king safety. The London System (1.d4 d5 2.Nf3 Nf6 3.Bf4) offers a solid setup that’s easy to learn. Other openings like the Queen’s Gambit, Ruy Lopez, and King’s Indian Attack are also covered, with diagrams and tips for controlling the center. We practice these in our weekly meetings (Wednesdays at 3:30 PM, Room 105). Come join us to play through these openings and improve your game!</p>
+                        </div>
+                        <a href="#" class="btn read-more">Read More</a>
                     </div>
                     <div class="blog-post">
                         <h3>Why Chess Builds Life Skills</h3>
                         <p class="meta">Posted on June 10, 2025 by Mr. John Doe</p>
                         <p>Our faculty sponsor, Mr. Doe, explores how chess fosters critical thinking, patience, and teamwork. Learn how our members have applied these skills in academics and beyond, with stories from our community outreach in Ashburn, VA.</p>
-                        <a href="#read-more" class="btn">Read More</a>
+                        <div class="blog-full-content">
+                            <p>Chess is more than a game—it’s a tool for building life skills. At BRHS Chess Club, I’ve seen students grow in remarkable ways. Critical thinking shines when players analyze complex positions, like a recent club game where a student spotted a checkmate in three moves. Patience is honed through long matches, teaching resilience under pressure. Teamwork comes alive in our community outreach, such as our chess workshops for local middle schoolers in Ashburn, VA. One student, Emily, used her chess-honed focus to excel in a science fair, while another, Raj, credits chess for improving his time management. Join our club to experience these benefits and share your own stories!</p>
+                        </div>
+                        <a href="#" class="btn read-more">Read More</a>
                     </div>
                 </div>
             </section>
@@ -339,13 +368,14 @@
             <section class="signup-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                 <div class="signup-container">
                     <h2>Stay Updated</h2>
-                    <p>Subscribe to our newsletter for the latest blog posts, event updates, and exclusive chess tips! Join our community and never miss a move. For inquiries, contact us at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a> or (571) 252-2300.</p>
+                    <p>Subscribe to our newsletter for the latest blog posts, event updates, and exclusive chess tips! Join our community and never miss a move.</p>
                     <div class="form-wrapper">
-                        <form action="submit_newsletter_signup.php" method="POST">
+                        <form id="newsletter-form" action="https://formspree.io/f/meokywje" method="POST">
                             <input type="text" name="name" placeholder="Full Name" required>
                             <input type="email" name="email" placeholder="Email Address" required>
                             <button type="submit">Subscribe Now</button>
                         </form>
+                        <p id="form-status"></p>
                     </div>
                 </div>
             </section>
@@ -360,7 +390,7 @@
             <div class="footer-content">
                 <h3>Contact Us</h3>
                 <p><a href="mailto:broadrunchessclub@gmail.com">broadrunchessclub@gmail.com</a></p>
-                <p><a href="tel:15712522300">(571) 252-2300</a></p>
+                <p><a href="tel:2408105647">(240) 810-5647</a></p>
                 <p><a href="https://maps.google.com/?q=21670+Ashburn+Rd" target="_blank">21670 Ashburn Rd</a></p>
             </div>
             <div class="footer-content">
@@ -385,5 +415,52 @@
         </div>
     </footer>
     <script src="JS_Files/navbar.js"></script>
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                once: true,
+            });
+
+            // Form submission handling
+            const form = document.getElementById('newsletter-form');
+            const status = document.getElementById('form-status');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    status.textContent = 'Thanks for subscribing!';
+                    status.style.color = 'white';
+                    form.reset();
+                } else {
+                    status.textContent = 'Oops! There was a problem with your subscription. Please try again.';
+                    status.style.color = '#ff4d4d';
+                }
+            });
+
+            // Blog post expand/collapse
+            const readMoreButtons = document.querySelectorAll('.read-more');
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const blogPost = button.closest('.blog-post');
+                    const isActive = blogPost.classList.contains('active');
+                    blogPost.classList.toggle('active');
+                    button.textContent = isActive ? 'Read More' : 'Read Less';
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -41,6 +41,8 @@
         }
 
         main {
+            max-width: 100%;
+            margin: 0 auto;
             flex: 1; /* Ensure main takes available space */
         }
 
@@ -68,47 +70,41 @@
             z-index: -1; /* Behind content */
         }
 
-        /* AOS initial opacity for animated elements */
-        [data-aos] {
-            opacity: 0;
-        }
-        [data-aos].aos-animate {
-            opacity: 1;
-        }
-
         /* Contact Section */
         .contact-section {
             padding: 6rem 1rem 4rem 1rem;
             text-align: center;
-            margin: 0 auto;
             max-width: 1400px;
+            margin: 0 auto;
+            margin-top: -28px; /* Matches Home, About, and Events pages */
         }
         .contact-container {
             max-width: 1400px;
             margin: 0 auto;
             background-color: var(--black-alt);
             padding: 2rem;
-            margin-top: -28px; /* Adjusted to match Home, About, and Events pages */
             border-radius: 12px;
             box-shadow: 0 0 10px var(--bronze);
             color: white;
         }
-        .contact-container h2 {
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
+        .contact-container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
             color: var(--gold);
+            margin-bottom: 1rem;
             text-align: center;
         }
         .contact-container p {
             font-size: 1.125rem;
             color: #e5e7eb;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             line-height: 1.75rem;
+            text-align: center; /* Center-align introductory text */
         }
         .contact-container .form-wrapper {
             display: block;
             width: 100%;
-            max-width: 800px;
+            max-width: 700px; /* Increased to 700px for slightly wider inputs */
             margin: 0 auto;
             text-align: center;
         }
@@ -118,6 +114,7 @@
             align-items: center;
             gap: 1rem;
             width: 100%;
+            max-width: 700px; /* Increased to 700px for slightly wider inputs */
         }
         .contact-container input,
         .contact-container textarea {
@@ -128,15 +125,17 @@
             background-color: var(--black);
             color: white;
             font-size: 1rem;
+            min-height: 40px; /* Ensure inputs and textarea have consistent height */
+        }
+        .contact-container textarea {
+            resize: vertical;
+            min-height: 120px; /* Ensure textarea is tall enough */
         }
         .contact-container input:focus,
         .contact-container textarea:focus {
             outline: none;
             border-color: var(--gold-alt);
             box-shadow: 0 0 5px var(--gold);
-        }
-        .contact-container textarea {
-            resize: vertical;
         }
         .contact-container button {
             background-color: var(--gold);
@@ -161,6 +160,7 @@
         /* FAQ Section */
         .faq-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -174,9 +174,10 @@
             color: white;
         }
         .faq-container h2 {
-            margin-bottom: 1.5rem;
             font-size: 2rem;
+            font-weight: 600;
             color: var(--gold);
+            margin-bottom: 1.5rem;
             text-align: center;
         }
         .faq-item {
@@ -235,6 +236,7 @@
         /* Location Section */
         .location-section {
             padding: 2rem 1rem 4rem 1rem;
+            text-align: center;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -246,12 +248,12 @@
             border-radius: 12px;
             box-shadow: 0 0 10px var(--bronze);
             color: white;
-            margin-bottom: 50px;
         }
         .location-container h2 {
-            margin-bottom: 1.5rem;
             font-size: 2rem;
+            font-weight: 600;
             color: var(--gold);
+            margin-bottom: 1.5rem;
             text-align: center;
         }
         .map {
@@ -311,8 +313,8 @@
             <!-- Contact Section -->
             <section class="contact-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                 <div class="contact-container">
-                    <h2>Contact Us</h2>
-                    <p style="margin-bottom: 2rem;">Have questions or want to get involved? Reach out to us! For inquiries, you can also email <a href="mailto:1066477@lcps.org">1066477@lcps.org</a> or call (571) 252-2300.</p>
+                    <h1>Contact Us</h1>
+                    <p>Have questions or want to get involved? Reach out to us! For inquiries, you can also email <a href="mailto:broadrunchessclub@gmail.com">broadrunchessclub@gmail.com</a> or call (240) 810-5647.</p>
                     <div class="form-wrapper">
                         <form id="contact-form" action="https://formspree.io/f/mkgbeeod" method="POST">
                             <input type="text" id="name" name="name" placeholder="Full Name" required />
@@ -321,8 +323,8 @@
                             <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
                             <button type="submit">Send Message</button>
                         </form>
+                        <p id="form-status"></p>
                     </div>
-                    <p id="form-status"></p>
                 </div>
             </section>
 
@@ -366,7 +368,7 @@
                     <h2>Our Location</h2>
                     <iframe
                         class="map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.6609!2d-77.48717!3d39.04413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6719012345678%3A0xabcdef1234567890!2s21670%20Ashburn%20Rd%2C%20Ashburn%2C%20VA%2020148!5e0!3m2!1sen!2us!4v1650000000000!5m2!1sen!2us"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.6609!2d-77.48717!3d39.04413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6719012345678%3A0xabcdef1234567890!2s21670%20Ashburn%20Rd%2C%20VA%2020148!5e0!3m2!1sen!2us!4v1650000000000!5m2!1sen!2us"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
@@ -384,8 +386,9 @@
             <div class="footer-content">
                 <h3>Contact Us</h3>
                 <p><a href="mailto:broadrunchessclub@gmail.com">broadrunchessclub@gmail.com</a></p>
-                <p><a href="tel:15712522300">(571) 252-2300</a></p>
+                <p><a href="tel:2408105647">(240) 810-5647</a></p>
                 <p><a href="https://maps.google.com/?q=21670+Ashburn+Rd" target="_blank">21670 Ashburn Rd</a></p>
+                <p>@chessbrhs</p>
             </div>
             <div class="footer-content">
                 <h3>Quick Links</h3>

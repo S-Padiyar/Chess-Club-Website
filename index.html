@@ -188,7 +188,7 @@
         }
         .cta-container h2 {
             font-size: 2rem;
-            font-weight: 700;
+            font-weight: 600;
             color: var(--gold);
             margin-bottom: 1rem;
             text-align: center; /* Keep header centered */
@@ -218,7 +218,8 @@
             transform: translateY(-2px);
         }
         .cta-container .download-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             color: var(--gold);
             text-decoration: underline;
             cursor: pointer;
@@ -228,9 +229,30 @@
         .cta-container .download-link:hover {
             color: white;
         }
+        .download-icon {
+            font-size: 1.5rem; /* Matches highlight-icon */
+            color: silver; /* Matches highlight-icon */
+            text-shadow: 0 0 5px var(--gold-alt); /* Matches highlight-icon */
+            margin-right: 0.5rem; /* Slightly less than highlight-icon for tighter spacing */
+            display: inline-block;
+            line-height: 1;
+        }
         .cta-container .button-wrapper {
             text-align: center; /* Center buttons */
             margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width: 767px) {
+            .cta-container .button-wrapper {
+                flex-direction: column; /* Stack buttons vertically in mobile */
+                align-items: center;
+            }
+            .cta-container .download-link {
+                margin-top: 1rem; /* Space above download link in mobile */
+            }
         }
 
         /* Carousel Section */
@@ -345,7 +367,7 @@
                     <p>Can’t make it to a meeting? Download our flyer to stay informed about upcoming events or contact us at <a href="mailto:1066477@lcps.org">1066477@lcps.org</a> or (571) 252-2300 for more details. Follow us on social media for updates on our latest activities and achievements. Don’t wait—join the BRHS Chess Club and start your journey on the board today!</p>
                     <div class="button-wrapper">
                         <a href="https://docs.google.com/forms/d/1Nf4FVM9WL_EJK8UDImD21I88EruiNuHB72Oehdc2IWs/edit" class="btn">Attend a Meeting</a>
-                        <a href="Chess_Club_Recruitment_Flyer (2025-2026).pdf" download class="download-link">📄 Download Our Flyer</a>
+                        <a href="Chess_Club_Recruitment_Flyer (2025-2026).pdf" download class="download-link"><i class="fas fa-file-download download-icon"></i>Download Our Flyer</a>
                     </div>
                 </div>
             </section>
@@ -376,8 +398,9 @@
             <div class="footer-content">
                 <h3>Contact Us</h3>
                 <p><a href="mailto:broadrunchessclub@gmail.com">broadrunchessclub@gmail.com</a></p>
-                <p><a href="tel:15712522300">(571) 252-2300</a></p>
+                <p><a href="tel:2408105647">(240) 810-5647</a></p>
                 <p><a href="https://maps.google.com/?q=21670 Ashburn Rd" target="_blank">21670 Ashburn Rd</a></p>
+                <p>@chessbrhs</p>
             </div>
             <div class="footer-content">
                 <h3>Quick Links</h3>
