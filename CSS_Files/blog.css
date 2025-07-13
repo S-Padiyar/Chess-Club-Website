@@ -180,7 +180,7 @@
             line-height: 1.75rem;
         }
         .blog-post.active .blog-full-content {
-            max-height: 1000px; /* Increased to accommodate longer content */
+            max-height: 100%; /* Increased to accommodate longer content */
             opacity: 1;
             padding: 1rem;
         }
