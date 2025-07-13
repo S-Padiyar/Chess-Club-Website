@@ -53,15 +53,15 @@
             z-index: -1; /* Behind content */
         }
 
-        /* Contact Section */
-        .contact-section {
+        /* Daily Puzzle Section */
+        .puzzle-section {
             padding: 6rem 1rem 4rem 1rem;
             text-align: center;
             max-width: 1400px;
             margin: 0 auto;
-            margin-top: -28px; /* Matches Home, About, and Events pages */
+            margin-top: -28px; /* Matches Home, About, Contact, and Events pages */
         }
-        .contact-container {
+        .puzzle-container {
             max-width: 1400px;
             margin: 0 auto;
             background-color: var(--black-alt);
@@ -70,45 +70,167 @@
             box-shadow: 0 0 10px var(--bronze);
             color: white;
         }
-        .contact-container h1 {
+        .puzzle-container h1 {
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--gold);
             margin-bottom: 1rem;
             text-align: center;
         }
-        .contact-container p {
+        .puzzle-container p {
             font-size: 1.125rem;
             color: #e5e7eb;
             margin-bottom: 1rem;
             line-height: 1.75rem;
             text-align: center;
         }
-        .contact-email {
-            color: var(--gold);
-            transition: all 0.3s ease;
+        .puzzle-container iframe {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 10/11;
+            border-radius: 12px;
+            margin: 1rem auto;
+            border: 2px solid var(--gold);
+            display: block;
+            padding-bottom: 0;
         }
-        .contact-email:hover {
-            color: var(--bronze);
+        .puzzle-container .btn {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+        .puzzle-container .btn:hover {
+            background-color: silver;
+            transform: translateY(-2px);
         }
 
-        .contact-container .form-wrapper {
+        /* Blog Posts Section */
+        .blog-section {
+            padding: 2rem 1rem 4rem 1rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .blog-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .blog-post {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--bronze);
+            padding-bottom: 1rem;
+            text-align: left;
+        }
+        .blog-post h3 {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        .blog-post p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+        }
+        .blog-post .meta {
+            font-size: 0.875rem;
+            color: #a1a1aa;
+            margin-bottom: 0.5rem;
+        }
+        .blog-post .btn {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+        .blog-post .btn:hover {
+            background-color: silver;
+            transform: translateY(-2px);
+        }
+        .blog-full-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.4s ease;
+            padding: 0 1rem;
+            color: #e5e7eb;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+        .blog-post.active .blog-full-content {
+            max-height: 1000px; /* Increased to accommodate longer content */
+            opacity: 1;
+            padding: 1rem;
+        }
+
+        /* Newsletter Sign-Up Section */
+        .signup-section {
+            padding: 2rem 1rem 4rem 1rem;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .signup-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .signup-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .signup-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+            text-align: center;
+        }
+        .signup-container .form-wrapper {
             display: block;
             width: 100%;
-            max-width: 700px;
+            max-width: 700px; /* Matches contact.html */
             margin: 0 auto;
             text-align: center;
         }
-        .contact-container form {
+        .signup-container form {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1rem;
             width: 100%;
-            max-width: 700px;
+            max-width: 700px; /* Matches contact.html */
         }
-        .contact-container input,
-        .contact-container textarea {
+        .signup-container input {
             width: 100%;
             padding: 0.75rem;
             border-radius: 6px;
@@ -116,19 +238,14 @@
             background-color: var(--black);
             color: white;
             font-size: 1rem;
-            min-height: 40px;
+            min-height: 36px; /* Matches previous request */
         }
-        .contact-container textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        .contact-container input:focus,
-        .contact-container textarea:focus {
+        .signup-container input:focus {
             outline: none;
             border-color: var(--gold-alt);
             box-shadow: 0 0 5px var(--gold);
         }
-        .contact-container button {
+        .signup-container button {
             background-color: var(--gold);
             color: var(--black);
             padding: 0.75rem 1.5rem;
@@ -137,9 +254,8 @@
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            margin-top: 6px;
         }
-        .contact-container button:hover {
+        .signup-container button:hover {
             background-color: silver;
             transform: translateY(-2px);
         }
@@ -149,124 +265,27 @@
             color: white;
         }
 
-        /* FAQ Section */
-        .faq-section {
-            padding: 2rem 1rem 4rem 1rem;
-            text-align: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .faq-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background-color: var(--black-alt);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 0 10px var(--bronze);
-            color: white;
-        }
-        .faq-container h2 {
-            font-size: 2rem;
-            font-weight: 600;
+        .contact-email {
             color: var(--gold);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .faq-item {
-            border-bottom: 1px solid #444;
-            margin-bottom: 2rem;
-        }
-        .faq-question {
-            color: white;
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.1rem;
-            background: none;
-            border: none;
-            text-align: left;
-            cursor: pointer;
-            position: relative;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 8px;
             transition: all 0.3s ease;
         }
-        .faq-question:hover {
-            background-color: rgba(212, 175, 55, 0.15);
-            color: white;
-        }
-        .faq-question .arrow {
-            transition: transform 0.3s ease, color 0.3s ease;
-            font-size: 1.2rem;
-            user-select: none;
-            color: white;
-        }
-        .faq-question:hover .arrow {
-            color: var(--gold);
-        }
-        .faq-item.active .arrow {
-            transform: rotate(180deg);
-            color: var(--gold);
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transition: all 0.4s ease;
-            padding: 0 1rem;
-            color: white;
-            text-align: left;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            opacity: 1;
-            padding: 1rem;
-        }
-
-        /* Location Section */
-        .location-section {
-            padding: 2rem 1rem 4rem 1rem;
-            text-align: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .location-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background-color: var(--black-alt);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 0 10px var(--bronze);
-            color: white;
-        }
-        .location-container h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .map {
-            width: 100%;
-            height: 400px;
-            border: 2px solid var(--gold);
-            border-radius: 12px;
-        }
-        @media (max-width: 600px) {
-            .map {
-                height: 250px;
-            }
+        .contact-email:hover {
+            color: var(--bronze);
         }
 
         /* Responsive paddings */
         @media (min-width: 768px) {
-            .contact-section {
+            .puzzle-section {
                 padding: 6rem 2rem 4rem 2rem;
             }
-            .faq-section,
-            .location-section {
+            .blog-section,
+            .signup-section {
                 padding: 2rem 2rem 4rem 2rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .puzzle {
+                width: 300px;
             }
         }

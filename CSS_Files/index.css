@@ -1,0 +1,302 @@
+:root {
+            --gold: #D4AF37;
+            --gold-alt: #caa449;
+            --black: #1B1B1B;
+            --black-alt: #1a1a1a;
+            --bronze: #6B4F2A;
+            --dark-bg: #121212;
+        }
+
+        /* Reset and base */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            padding-top: 80px; /* Matches navbar height */
+        }
+
+        main {
+            max-width: 100%;
+            margin: 0 auto;
+            flex: 1 0 auto; /* Ensure main takes available space */
+        }
+
+        /* Content wrapper for chessboard pattern */
+        .content-wrapper {
+            position: relative;
+            min-height: calc(100vh - 80px); /* Full height minus navbar */
+            z-index: 1;
+            flex: 1 0 auto; /* Ensure it grows to fill space */
+        }
+
+        /* Chessboard pattern as a pseudo-element */
+        .content-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%),
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            z-index: -1; /* Behind content */
+        }
+
+        /* AOS initial opacity for animated elements */
+        [data-aos] {
+            opacity: 0;
+        }
+        [data-aos].aos-animate {
+            opacity: 1;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            padding: 6rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers */
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: -28px;
+        }
+        .welcome-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .welcome-container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-align: center; /* Keep header centered */
+        }
+        .welcome-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+            text-align: left; /* Left-align body text */
+            padding-left: 1rem; /* Slight indent for readability */
+        }
+
+        /* Highlights Section */
+        .highlights-section {
+            padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .highlights-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .highlights-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-align: center; /* Keep header centered */
+        }
+        .highlights-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: #e5e7eb;
+            line-height: 1.75rem;
+        }
+        .highlights-container ul li {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            text-align: center; /* Center-align list items for achievements */
+            display: flex;
+            flex-direction: row; /* Icons to the left by default */
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping for better mobile display */
+        }
+        .highlight-icon {
+            font-size: 1.5rem; /* Larger icons */
+            color: silver; /* Silver color for icons */
+            margin-right: 0.75rem; /* Space to the right of icon */
+            text-shadow: 0 0 5px var(--gold-alt); /* Subtle gold glow */
+            display: inline-block; /* Ensure proper rendering */
+            line-height: 1; /* Align icon vertically */
+        }
+        @media (max-width: 767px) {
+            .highlights-container ul li {
+                flex-direction: column; /* Stack icon above text in mobile */
+                align-items: center;
+            }
+            .highlight-icon {
+                margin-right: 0; /* Remove right margin in mobile */
+                margin-bottom: 0.5rem; /* Space below icon */
+            }
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers and buttons */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .cta-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .cta-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-align: center; /* Keep header centered */
+        }
+        .cta-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+            text-align: left; /* Left-align body text */
+            padding-left: 1rem; /* Slight indent for readability */
+        }
+        .cta-container .btn {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        .cta-container .btn:hover {
+            background-color: silver;
+            transform: translateY(-2px);
+        }
+        .cta-container .download-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--gold);
+            text-decoration: underline;
+            cursor: pointer;
+            margin: 1rem 0;
+            transition: color 0.3s ease;
+        }
+        .cta-container .download-link:hover {
+            color: white;
+        }
+        .download-icon {
+            font-size: 1.5rem; /* Matches highlight-icon */
+            color: silver; /* Matches highlight-icon */
+            text-shadow: 0 0 5px var(--gold-alt); /* Matches highlight-icon */
+            margin-right: 0.5rem; /* Slightly less than highlight-icon for tighter spacing */
+            display: inline-block;
+            line-height: 1;
+        }
+        .cta-container .button-wrapper {
+            text-align: center; /* Center buttons */
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width: 767px) {
+            .cta-container .button-wrapper {
+                flex-direction: column; /* Stack buttons vertically in mobile */
+                align-items: center;
+            }
+            .cta-container .download-link {
+                margin-top: 1rem; /* Space above download link in mobile */
+            }
+        }
+
+        /* Carousel Section */
+        .carousel-section {
+            padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for header and images */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .carousel-container {
+            max-width: 1400px;
+            margin: 0 auto 50px;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+        }
+        .carousel-container h2 {
+            font-size: 2rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center; /* Keep header centered */
+        }
+        .carousel-images {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 2px solid var(--gold);
+            margin: 0 auto; /* Keep carousel images centered */
+        }
+        .carousel-slide {
+            width: 100%;
+            display: none;
+            border-radius: 12px;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+
+        .contact-email {
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+        .contact-email:hover {
+            color: var(--bronze);
+        }
+
+        /* Footer */
+        footer {
+            flex-shrink: 0; /* Prevent footer from shrinking */
+        }
+
+        /* Responsive paddings */
+        @media (min-width: 768px) {
+            .welcome-section {
+                padding: 6rem 2rem 4rem 2rem;
+            }
+            .highlights-section,
+            .cta-section,
+            .carousel-section {
+                padding: 2rem 2rem 4rem 2rem;
+            }
+        }

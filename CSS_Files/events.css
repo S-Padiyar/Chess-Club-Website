@@ -1,0 +1,224 @@
+        :root {
+            --gold: #D4AF37;
+            --gold-alt: #caa449;
+            --black: #1B1B1B;
+            --black-alt: #1a1a1a;
+            --bronze: #6B4F2A;
+            --dark-bg: #121212;
+        }
+
+        /* Reset and base */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            padding-top: 80px; /* Matches navbar height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            max-width: 100%;
+            margin: 0 auto;
+            flex: 1; /* Ensure main takes available space */
+        }
+
+        /* Content wrapper for chessboard pattern */
+        .content-wrapper {
+            position: relative;
+            min-height: calc(100vh - 80px); /* Full height minus navbar */
+            z-index: 1;
+            flex: 1 0 auto; /* Ensure it grows to fill space */
+        }
+
+        /* Chessboard pattern as a pseudo-element */
+        .content-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%),
+                linear-gradient(45deg, var(--black-alt) 25%, transparent 25%, transparent 75%, var(--black-alt) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            z-index: -1; /* Behind content */
+        }
+
+        /* Upcoming Events Section */
+        .events-section {
+            padding: 6rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers */
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: -28px; /* Matches Home, About, and Contact pages */
+        }
+        .events-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .events-container h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-align: center; /* Keep header centered */
+        }
+        .events-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+            text-align: left; /* Left-align body text */
+            padding-left: 1rem; /* Slight indent for readability */
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers and iframe */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .calendar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .calendar-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-align: center; /* Keep header centered */
+        }
+        .calendar-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+            text-align: center; /* Center-align text */
+        }
+        .calendar-container iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            border: 2px solid var(--gold) !important; /* Reinforced yellow border to match images */
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            margin-top: 25px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto; /* Center iframe */
+        }
+
+        /* Tournament Sign-Up Section */
+        .signup-section {
+            padding: 2rem 1rem 4rem 1rem;
+            text-align: center; /* Keep centered for headers and form */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .signup-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: var(--black-alt);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--bronze);
+            color: white;
+        }
+        .signup-container h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-align: center; /* Keep header centered */
+        }
+        .signup-container p {
+            font-size: 1.125rem;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            line-height: 1.75rem;
+            text-align: center; /* Center-align text */
+        }
+        .signup-container .form-wrapper {
+            display: block;
+            width: 100%;
+            max-width: 650px; /* Adjusted to 650px for slightly wider inputs */
+            margin: 0 auto;
+            text-align: center; /* Center form elements */
+        }
+        .signup-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            max-width: 650px; /* Adjusted to 650px for slightly wider inputs */
+            margin: 0 auto; /* Center form */
+        }
+        .signup-container input,
+        .signup-container select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--gold);
+            background-color: var(--black);
+            color: white;
+            font-size: 1rem;
+        }
+        .signup-container input:focus,
+        .signup-container select:focus {
+            outline: none;
+            border-color: var(--gold-alt);
+            box-shadow: 0 0 5px var(--gold);
+        }
+        .signup-container button {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: bold;
+            margin-top: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .signup-container button:hover {
+            background-color: silver;
+            transform: translateY(-2px);
+        }
+        #form-status {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: white;
+        }
+
+        /* Responsive paddings */
+        @media (min-width: 768px) {
+            .events-section {
+                padding: 6rem 2rem 4rem 2rem;
+            }
+            .calendar-section,
+            .signup-section {
+                padding: 2rem 2rem 4rem 2rem;
+            }
+        }
